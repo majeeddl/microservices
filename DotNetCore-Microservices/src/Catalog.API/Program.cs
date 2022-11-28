@@ -1,13 +1,17 @@
 using Catalog.API.Domains.Interfaces;
+using Catalog.API.Frameworks.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var services = builder.Services;
+
+
+services.ConfigureDatabase();
+services.AddMongoRepository();
+
 services.AddControllers();
 
-
-//services.AddSingleton<IRepository<>>()
 
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
