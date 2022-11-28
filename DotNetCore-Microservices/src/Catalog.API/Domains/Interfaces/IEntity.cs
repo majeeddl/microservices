@@ -7,11 +7,9 @@ namespace Catalog.API.Domains.Interfaces
     {
         [BsonId]
         public string Id { get; set; }
-
-        [BsonRepresentation(BsonType.Timestamp)]
+        
         public DateTime CreatedAt { get; set; }
-
-        [BsonRepresentation(BsonType.Timestamp)]
+        
         public DateTime UpdatedAt { get; set; }
     }
 }

@@ -11,10 +11,10 @@ namespace Catalog.API.Domains.Entities
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        [BsonRepresentation(BsonType.Timestamp)]
+
         public DateTime CreatedAt { get; set; }
 
-        [BsonRepresentation(BsonType.Timestamp)]
+
         public DateTime UpdatedAt { get; set; }
     }
 }
