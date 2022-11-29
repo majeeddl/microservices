@@ -10,7 +10,8 @@ var services = builder.Services;
 services.ConfigureDatabase();
 services.AddMongoRepository();
 
-services.AddControllers();
+services.AddControllers().AddJsonOptions(
+    options => options.JsonSerializerOptions.PropertyNamingPolicy = null); ;
 
 
 services.AddEndpointsApiExplorer();

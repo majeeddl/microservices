@@ -25,7 +25,7 @@ namespace Catalog.API.Frameworks.Data
 
         public async Task<T> GetAsync(string id)
         {
-            var filter = _filterDefinitionBuilder.Eq(entity => entity.Id == id);
+            var filter = _filterDefinitionBuilder.Eq(e => e.Id,id);
             return await _dbCollection.Find(filter).FirstOrDefaultAsync();
         }
 
