@@ -1,11 +1,20 @@
+using Catalog.API.Domains.Interfaces;
+using Catalog.API.Frameworks.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var services = builder.Services;
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+services.ConfigureDatabase();
+services.AddMongoRepository();
+
+services.AddControllers();
+
+
+services.AddEndpointsApiExplorer();
+services.AddSwaggerGen();
 
 var app = builder.Build();
 
