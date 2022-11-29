@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  catalog.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - MongoDBSettings__ConnectionString=mongodb://mongo:27017
+    ports:
+      - "80"
