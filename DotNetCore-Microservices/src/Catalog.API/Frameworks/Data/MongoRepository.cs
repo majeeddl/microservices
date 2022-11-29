@@ -10,7 +10,6 @@ namespace Catalog.API.Frameworks.Data
 
         private readonly FilterDefinitionBuilder<T> _filterDefinitionBuilder = Builders<T>.Filter;
 
-
         public MongoRepository(IMongoDatabase database)
         {
 
@@ -24,9 +23,29 @@ namespace Catalog.API.Frameworks.Data
             return await this._dbCollection.Find(_filterDefinitionBuilder.Empty).ToListAsync();
         }
 
-        public Task<T> GetAsync(string id)
+        public async Task<T> GetAsync(string id)
         {
-            throw new NotImplementedException();
+            var filter = _filterDefinitionBuilder.Eq(entity => entity.Id == id);
+            return await _dbCollection.Find(filter).FirstOrDefaultAsync();
+        }
+
+        public async  Task<T> CreateAsync(T entity)
+        {
+            await _dbCollection.InsertOneAsync(entity);
+
+            return entity;
+        }
+
+        public async Task<T> UpdateAsync(T entity)
+        {
+            await _dbCollection.ReplaceOneAsync(filter: e => e.Id == entity.Id,replacement: entity);
+
+            return entity;
+        }
+
+        public async Task DeleteAsync(string id)
+        {
+            await _dbCollection.DeleteOneAsync(filter: e => e.Id == id);
         }
     }
 }
