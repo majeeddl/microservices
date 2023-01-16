@@ -348,7 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-ModularMonolith/.idea/*
-CleanArchitectureDDD/.idea/*
-PLAY.CATALOG/.idea/*
-ShopMicroservices/.idea/*
+
+
+DotNetCore-Microservices/idea/*
