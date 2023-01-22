@@ -1,17 +1,17 @@
 ﻿namespace Basket.API.Domains.Entities
 {
-    public class ShoppingCard
+    public class ShoppingCart
     {
         public string Username { get; set; }
 
-        public List<ShoppingCardItem> Items { get; set; } = new List<ShoppingCardItem>();
+        public List<ShoppingCartItem> Items { get; set; } = new List<ShoppingCartItem>();
 
 
-        public ShoppingCard()
+        public ShoppingCart()
         {
             
         }
-        public ShoppingCard(string username)
+        public ShoppingCart(string username)
         {
             Username = username;
         }

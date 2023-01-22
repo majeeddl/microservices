@@ -10,10 +10,20 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.2" />
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Domains\Interfaces\" />
+    <Folder Include="Frameworks\" />
+    <Folder Include="Frameworks\Data\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Domains\Interfaces\" />
+    <None Remove="Frameworks\" />
+    <None Remove="Frameworks\Data\" />
+    <None Remove="Newtonsoft.Json" />
+  </ItemGroup>
 </Project>
