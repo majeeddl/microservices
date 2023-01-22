@@ -15,7 +15,6 @@ namespace Catalog.API.Frameworks.Data
             {
                 var configuration = serviceProvider.GetService<IConfiguration>();
 
-
                 var mongoDBSettings = configuration?.GetSection(nameof(MongoDBSettings)).Get<MongoDBSettings>() ?? throw new ArgumentNullException("configuration.GetSection(nameof(MongoDBSettings)).Get<MongoDBSettings>()");
 
                 var mongoClient = new MongoClient(mongoDBSettings.ConnectionString);
