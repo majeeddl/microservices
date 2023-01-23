@@ -24,9 +24,18 @@ services:
     networks:
       - internal
 
+  discount.api:
+    image: ${DOCKER_REGISTRY-}discountapi
+    build:
+      context: .
+      dockerfile: src/Discount.API/Dockerfile
+    networks:
+      - internal
+
 networks:
   internal:
     external: true
 
 volumes:
   portainer_data:
+

@@ -27,3 +27,12 @@ services:
     ports:
       - "8001:80"
 
+
+  discount.api:
+    container_name: discount_api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DatabaseSettings__ConnectionString=Server=postgis;Port=5432;Database=DiscountDb;User Id=postgres;Password=postgis@2022
+    ports:
+      - "8002:80"
+
