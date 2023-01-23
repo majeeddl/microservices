@@ -10,6 +10,14 @@ services:
       - internal
 
 
+  basket.api:
+    image: ${DOCKER_REGISTRY-}basketapi
+    build:
+      context: .
+      dockerfile: src/Basket.API/Dockerfile
+    networks:
+      - internal
+
 networks:
   internal:
     external: true
