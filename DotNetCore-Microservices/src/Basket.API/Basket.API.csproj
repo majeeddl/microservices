@@ -14,10 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Domains\Interfaces\" />
-    <Folder Include="Frameworks\" />
-    <Folder Include="Frameworks\Data\" />
   </ItemGroup>
 
   <ItemGroup>

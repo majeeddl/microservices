@@ -1,3 +1,6 @@
+
+using Basket.API.Frameworks.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -8,6 +11,8 @@ services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = builder.Configuration.GetValue<string>("CacheSettings:ConnectionString");
 });
+
+services.AddRedisRepository();
 
 services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
