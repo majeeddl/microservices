@@ -1,4 +1,4 @@
-﻿using Discount.API.Frameworks.Data;
+﻿using Discount.Grpc.Frameworks.Data;
 using Discount.Grpc.Domains.Interfaces;
 
 namespace Discount.Grpc.Frameworks.Data
