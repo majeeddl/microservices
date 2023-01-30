@@ -32,10 +32,17 @@ services:
     networks:
       - internal
 
+  discount.grpc:
+    image: ${DOCKER_REGISTRY-}discountgrpc
+    build:
+      context: .
+      dockerfile: src/Discount.Grpc/Dockerfile
+
 networks:
   internal:
     external: true
 
 volumes:
   portainer_data:
+
 

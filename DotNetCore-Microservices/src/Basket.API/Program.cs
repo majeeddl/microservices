@@ -18,7 +18,8 @@ services.AddStackExchangeRedisCache(options =>
 
 services.AddRedisRepository();
 
-var t = builder.Configuration.GetValue<string>("GrpcSettings:DiscountUrl");
+//var t = builder.Configuration.GetValue<string>("GrpcSettings:DiscountUrl");
+var t = builder.Configuration["GrpcSettings:DiscountUrl"];
 services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(o=> o.Address = new Uri(t));
 services.AddScoped<DiscountGrpcServices>();
 
