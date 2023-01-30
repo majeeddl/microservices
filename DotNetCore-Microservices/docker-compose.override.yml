@@ -24,6 +24,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - CacheSettings__ConnectionString=redis:6379
+      - GrpcSettings__DiscountUrl=http://discount.grpc
     ports:
       - "8001:80"
 
@@ -35,4 +36,12 @@ services:
       - DatabaseSettings__ConnectionString=Server=postgis;Port=5432;Database=DiscountDb;User Id=postgres;Password=postgis@2022
     ports:
       - "8002:80"
+
+  discount.grpc:
+    container_name: discount.grpc
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DatabaseSettings__ConnectionString=Server=postgis;Port=5432;Database=DiscountDb;User Id=postgres;Password=postgis@
+    ports:
+      - "8003:80"
 
