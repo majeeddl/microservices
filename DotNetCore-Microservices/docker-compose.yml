@@ -38,11 +38,18 @@ services:
       context: .
       dockerfile: src/Discount.Grpc/Dockerfile
 
+  ordering.api:
+    image: ${DOCKER_REGISTRY-}orderingapi
+    build:
+      context: .
+      dockerfile: src/Ordering/Ordering.API/Dockerfile
+
 networks:
   internal:
     external: true
 
 volumes:
   portainer_data:
+
 
 

@@ -45,3 +45,11 @@ services:
     ports:
       - "8003:80"
 
+
+  ordering.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__OrderingConnectionString=Server=mssql;Database=OrdersDb;User Id=SA;Password=mssql@2022;MultipleActiveResultSets=true
+    ports:
+      - "8004:80"
+
