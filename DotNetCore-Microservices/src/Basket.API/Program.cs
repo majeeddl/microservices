@@ -2,6 +2,7 @@
 using Basket.API.Frameworks.Data;
 using Basket.API.GrpcServices;
 using Discount.Grpc.Protos;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -22,6 +23,17 @@ services.AddRedisRepository();
 var t = builder.Configuration["GrpcSettings:DiscountUrl"];
 services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(o=> o.Address = new Uri(t));
 services.AddScoped<DiscountGrpcServices>();
+
+
+services.AddMassTransit(config =>
+{
+     config.UsingRabbitMq((ctx, cfg) =>
+     {
+         cfg.Host(builder.Configuration.GetValue<string>("EventBusSettings:HostAddress"));
+     });
+});
+
+//services.AddMassTransitHostedService();
 
 services.AddControllers();
 

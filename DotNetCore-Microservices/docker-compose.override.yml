@@ -25,6 +25,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - CacheSettings__ConnectionString=redis:6379
       - GrpcSettings__DiscountUrl=http://discount.grpc
+      - EventBusSettings__HostAddress=amqp://admin:adminx@rabbitmq:5672
     ports:
       - "8001:80"
 
