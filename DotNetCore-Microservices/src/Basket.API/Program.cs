@@ -23,7 +23,7 @@ services.AddRedisRepository();
 var t = builder.Configuration["GrpcSettings:DiscountUrl"];
 services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(o=> o.Address = new Uri(t));
 services.AddScoped<DiscountGrpcServices>();
-
+services.AddAutoMapper(typeof(Program));
 
 services.AddMassTransit(config =>
 {
