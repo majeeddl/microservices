@@ -51,6 +51,9 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__OrderingConnectionString=Server=mssql;Database=OrdersDb;User Id=SA;Password=mssql@2022;MultipleActiveResultSets=true
+      - EventBusSettings__HostAddress=amqp://admin:adminx@rabbitmq:5672
+    depends_on:
+      - basket.api
     ports:
       - "8004:80"
 
